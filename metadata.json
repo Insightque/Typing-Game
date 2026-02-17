@@ -1,0 +1,5 @@
+{
+  "name": "Sanrio Typing Game",
+  "description": "A fun typing game featuring Sanrio-like characters, falling words, and items, with progressive difficulty and performance reporting.",
+  "requestFramePermissions": []
+}

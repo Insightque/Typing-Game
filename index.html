@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sanrio Fairy Town Typing</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap');
+
+      :root {
+        --app-height: 100%;
+      }
+
+      body {
+        font-family: 'Gaegu', cursive;
+        background: linear-gradient(180deg, #BDE3FF 0%, #E0F7FA 40%, #D4ED91 100%);
+        background-attachment: fixed;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        height: var(--app-height);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        touch-action: manipulation;
+      }
+
+      /* 꽃잎 효과 */
+      .petal {
+        position: fixed;
+        top: -10%;
+        font-size: 20px;
+        opacity: 0.4;
+        animation: falling linear infinite;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      @keyframes falling {
+        0% { transform: translateY(0vh) rotate(0deg); opacity: 0; }
+        10% { opacity: 0.6; }
+        90% { opacity: 0.6; }
+        100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+      }
+
+      #root {
+        z-index: 10;
+        width: 100%;
+        max-width: 100vw;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+    <script>
+      // Mobile height fix
+      const documentHeight = () => {
+        const doc = document.documentElement;
+        doc.style.setProperty('--app-height', `${window.innerHeight}px`);
+      };
+      window.addEventListener('resize', documentHeight);
+      documentHeight();
+    </script>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "uuid": "https://esm.sh/uuid@^13.0.0"
+  }
+}
+</script>
+</head>
+<body>
+    <div class="petal" style="left: 10%; animation-duration: 10s;">🌸</div>
+    <div class="petal" style="left: 30%; animation-duration: 15s; animation-delay: 2s;">✨</div>
+    <div class="petal" style="left: 70%; animation-duration: 12s; animation-delay: 5s;">🌸</div>
+    <div class="petal" style="left: 90%; animation-duration: 18s; animation-delay: 1s;">✨</div>
+    
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
